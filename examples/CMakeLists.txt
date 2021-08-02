@@ -25,7 +25,7 @@ include_directories ( ${EIGEN3_INCLUDE_DIRS} )
 
 function(create_executable app_name file_name)
     add_executable(${app_name} ${file_name})
-    set_target_properties(${app_name} PROPERTIES MACOSX_RPATH "${CMAKE_CURRENT_SOURCE_DIR}/../raisim/mac/lib")
+    set_target_properties(${app_name} PROPERTIES MACOSX_RPATH "${CMAKE_CURRENT_SOURCE_DIR}/../raisim/{RAISIM_OS}/lib")
     if(WIN32)
         target_link_libraries(${app_name} PUBLIC raisim::raisim Ws2_32 Winmm)
         target_compile_options(${app_name} PRIVATE "/MP")
