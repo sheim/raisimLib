@@ -1034,10 +1034,10 @@ class ArticulatedSystem : public Object {
   void setPGains(const T &pgain) {
     RSFATAL_IF(size_t(pgain.rows()) != dof, "p gains should have the same dimension as the degrees of freedom")
     kp_ = pgain;
-    if (jointType[0] == Joint::FLOATING) {
-      for (size_t i = 0; i < 6; i++)
-        kp_[i] = 0;
-    }
+    // if (jointType[0] == Joint::FLOATING) {
+    //   for (size_t i = 0; i < 6; i++)
+    //     kp_[i] = 0;
+    // }
     dampedDiagonalTermUpdated_ = false;
   }
 
@@ -1047,11 +1047,11 @@ class ArticulatedSystem : public Object {
   template<class T>
   void setDGains(const T &dgain) {
     RSFATAL_IF(size_t(dgain.rows()) != dof, "d gains should have the same dimension as the degrees of freedom")
-    kd_ = dgain;
-    if (jointType[0] == Joint::FLOATING) {
-      for (size_t i = 0; i < 6; i++)
-        kd_[i] = 0;
-    }
+    // kd_ = dgain;
+    // if (jointType[0] == Joint::FLOATING) {
+    //   for (size_t i = 0; i < 6; i++)
+    //     kd_[i] = 0;
+    // }
     dampedDiagonalTermUpdated_ = false;
   }
 
